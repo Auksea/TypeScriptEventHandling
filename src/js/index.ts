@@ -1,12 +1,48 @@
-interface Person {
-    firstName: string;
-    lastName: string;
-}
+let element: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
+let inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById("myInput");
+let buttonElement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("myButton");
 
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-let user: Person = { firstName: "John", lastName: "Doe" };
+buttonElement.addEventListener("click",
+    () => console.log("button click"));
 
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
+buttonElement.addEventListener("click",
+    (e: MouseEvent) => console.log("button click " + e.screenX + ", " + e.screenY));
+
+document.addEventListener("click",
+    (e: MouseEvent) => console.log("background " + e.screenX + ", " + e.screenY));
+
+inputElement.addEventListener("focus",
+    (e: FocusEvent) => {
+        console.log("input focus ");
+        inputElement.style.backgroundColor = "orange";
+    });
+
+inputElement.addEventListener("blur",
+    (e: FocusEvent) => {
+        console.log("input blur ");
+        inputElement.style.backgroundColor = "white";
+    });
+
+inputElement.addEventListener("keydown",
+    (e: KeyboardEvent) => console.log("input keydown " + e.key));
+
+inputElement.addEventListener("keyup",
+    (e: KeyboardEvent) => console.log("input keyup " + e.key));
+
+inputElement.addEventListener("keypress",
+    (e: KeyboardEvent) => console.log("input keypress " + e.key));
+
+buttonElement.addEventListener("mouseover",
+    (e: MouseEvent) => {
+        console.log("button mouseover " + e.x + ", " + e.y);
+        buttonElement.style.fontWeight = "bold";
+    });
+
+buttonElement.addEventListener("mouseout",
+    (e: MouseEvent) => {
+        console.log("button mouseover " + e.x + ", " + e.y);
+        buttonElement.style.fontWeight = "normal";
+    });
+
+inputElement.addEventListener("select",
+    (e: UIEvent, ) => console.log("input select ");
