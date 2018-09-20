@@ -23,14 +23,14 @@ inputElement.addEventListener("blur",
         inputElement.style.backgroundColor = "white";
     });
 
+inputElement.addEventListener("keypress",
+    (e: KeyboardEvent) => console.log("input keypress " + e.key));
+
 inputElement.addEventListener("keydown",
     (e: KeyboardEvent) => console.log("input keydown " + e.key));
 
 inputElement.addEventListener("keyup",
     (e: KeyboardEvent) => console.log("input keyup " + e.key));
-
-inputElement.addEventListener("keypress",
-    (e: KeyboardEvent) => console.log("input keypress " + e.key));
 
 buttonElement.addEventListener("mouseover",
     (e: MouseEvent) => {
@@ -44,5 +44,5 @@ buttonElement.addEventListener("mouseout",
         buttonElement.style.fontWeight = "normal";
     });
 
-inputElement.addEventListener("select",
-    (e: UIEvent, ) => console.log("input select ");
+inputElement.addEventListener("select", // select some text
+    (e: UIEvent, ) => console.log("input select "));
