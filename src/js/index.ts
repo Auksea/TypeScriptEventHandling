@@ -1,9 +1,13 @@
-let element: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
+let contenElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
 let inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById("myInput");
 let buttonElement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("myButton");
 
 buttonElement.addEventListener("click",
-    () => console.log("button click"));
+    () => {
+        console.log("button click");
+        let inputText: String = inputElement.value;
+        contenElement.innerHTML = "You typed " + inputText;
+    });
 
 buttonElement.addEventListener("click",
     (e: MouseEvent) => console.log("button click " + e.screenX + ", " + e.screenY));
